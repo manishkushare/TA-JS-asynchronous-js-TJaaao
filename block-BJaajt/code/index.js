@@ -95,3 +95,25 @@ function handleInput(event){
 }
 
 input.addEventListener("keyup",handleInput);
+
+// cat api
+
+let btn = document.querySelector(".btn");
+let imageWrap = document.querySelector(".image_cat_wrap");
+
+function handleCats(event){
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", `https://api.thecatapi.com/v1/images/search?api_key=1d287bcd-e07c-49e2-9877-a3c947b5848c`);
+  xhr.onload = ()=>{
+    imageWrap.innerHTML = "";
+    let data = JSON.parse(xhr.response);
+    console.log(data);
+    let img = document.createElement("img");
+    img.src = data[0].url;
+    imageWrap.append(img);
+  }
+  xhr.send();
+}
+
+
+btn.addEventListener("click",handleCats);
