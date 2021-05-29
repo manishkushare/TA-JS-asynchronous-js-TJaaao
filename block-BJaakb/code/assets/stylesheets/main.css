@@ -90,4 +90,17 @@ table {
   padding: 0.75rem 2rem;
   text-align: left;
 }
+
+.hero {
+  padding: 2rem 0;
+}
+
+.hero ul {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  text-align: center;
+}
 /*# sourceMappingURL=main.css.map */
