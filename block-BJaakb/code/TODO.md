@@ -8,3 +8,6 @@
 Add-on:
 
 - Refactor the image search app you created (in previous exercise) to use the function `fetch` you crated above.
+```js
+
+```
