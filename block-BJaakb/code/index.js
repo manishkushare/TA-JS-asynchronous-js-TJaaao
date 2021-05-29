@@ -14,6 +14,7 @@ function fetch(url){
 }
 
 function displayImage(image){
+  console.log("insdie display :",image);
   imageContainer.innerHTML = "";
   let ul = document.createElement("ul");
   image.forEach(imgage =>{
@@ -26,13 +27,16 @@ function displayImage(image){
   imageContainer.append(ul);
 }
 
-fetch(url).then(displayImage).catch((error)=> alert(error));
+let data = fetch(url);
+console.log("data :",data);
+data.then(displayImage).catch((error)=> alert(error));
 
 function handleInput(event){
   if(event.keyCode === 13){
     console.log("test");
-    fetch(getSearchUrl(input.value))
-    .then((searchInfo)=> displayImage(searchInfo.results))
+    let searchData = fetch(getSearchUrl(input.value))
+    console.log("inside handleInput :",searchData);
+    searchData.then((searchInfo)=> displayImage(searchInfo.results))
     .catch((error)=> alert(error));
     input.value = "";
   }
