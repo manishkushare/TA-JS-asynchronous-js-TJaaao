@@ -6,7 +6,9 @@ let promise = new Promise((resolve,reject)=> {
   setTimeout(() => resolve("Promise Resolved!"),1000)
 })
 console.log(promise);
-promise.then(message => console.log(message));
+// promise.then(message => console.log(message));
+// Another way is passing function reference because, then will call the function reference with the value it is getting from the resolve function
+promise.then(console.log);
 ```
 
 2. Create another promise. Now have it reject with a value of `Rejected Promise!` without using `setTimeout`. Print the contents of the promise after it has been rejected by passing console.log to `.catch`
@@ -14,8 +16,8 @@ promise.then(message => console.log(message));
 ```js
 // Your code
 new Promise((resolve,reject)=> {
-  reject(new Error("Rejected Promise"!))
-}).catch(error => console.log(error));
+  reject(new Error("Rejected Promise!"));
+}).catch(console.log);
 ```
 
 3. Create another promise. Now have it reject with a value of `Rejected Promise!` without using `setTimeout`. Print the contents of the promise after it has been rejected by passing console.log to `.catch` and also use `.finally` to log message `Promise Settled!`.
@@ -24,7 +26,7 @@ new Promise((resolve,reject)=> {
 // Your code
 new Promise((resolve,reject)=> {
   reject(new Error("Rejected Promise!"));
-}).catch(error => console.log(error)).finally(() => console.log("Promise setteled!"));
+}).catch(console.log).finally(() => console.log("Promise setteled!"));
 ```
 
 4. What will be the output of the code below.
@@ -71,7 +73,7 @@ new Promise((resolve,reject)=> {
   if(value2 > 100){
     throw new Error("value more than 100 not allowed");
   }
-} ).catch(error => console.log(error));
+} ).catch(console.log);
 ```
 
 7. Do the following:
