@@ -57,8 +57,103 @@ table {
           box-sizing: border-box;
 }
 
+body {
+  font-size: 16px;
+}
+
 .container {
   max-width: 1150px;
   margin: 0 auto;
+}
+
+.header {
+  padding: 1.5rem 0;
+  background-color: black;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  color: wheat;
+  text-align: center;
+}
+
+.hero .news {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: wheat;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.hero .news img {
+  width: 20%;
+}
+
+.news_wrap {
+  padding: 2rem 0;
+}
+
+.news_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 1rem;
+}
+
+.news_info * {
+  padding: 1rem 0;
+}
+
+.news_info a {
+  text-decoration: none;
+}
+
+.news_info button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.news_info h2 {
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.source {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.25rem;
+  background-color: black;
+  color: azure;
+  width: 100%;
+  border-radius: 2rem;
+  border: 0;
+}
+
+.select_wrap {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.select_wrap select {
+  text-align: center;
+  padding: 0.5rem 2.5rem;
 }
 /*# sourceMappingURL=main.css.map */
