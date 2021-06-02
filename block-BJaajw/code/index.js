@@ -48,6 +48,7 @@ function createDropdown(data){
     select.append(option);
   })
 }
+
 function init(){
   handleLoad(true);
   let data  = fetch(url).then((response)=> {
@@ -96,6 +97,12 @@ function handleSelect(event,data){
     renderNews(data);
   }
 }
-init();
+
+if(navigator.onLine){
+  init();
+
+}else{
+  document.querySelector(".error").innerText = "Check your internet connection";
+}
 
 
