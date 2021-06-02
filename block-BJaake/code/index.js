@@ -1,4 +1,4 @@
-let url = `https://api.spaceflightnewsapi.net/v3/Articles/?_limit=30`;
+let url = `https://api.spaceflightnewsapi.net/v3/Articles?_limit=30`;
 let newsContainer = document.querySelector(".news_wrap");
 let select = document.querySelector("select");
 let filteredNewsSite = [];
@@ -40,15 +40,9 @@ function createDropdown(data){
   })
 }
 
-let data  = fetch(url).then((response)=> {
-  if(!response.ok){
-    throw new Error(`Error happened: ${response.status}`)
-  }
-  return response.json()
-})
-.then(newsInfo => {
-  if(Array.isArray(newsInfo)){
-    console.log(newsInfo);
+let data  = fetch(url).then((response)=> response.json())
+data.then(newsInfo => {
+  console.log(newsInfo);
   renderNews(newsInfo);
   newsInfo.forEach(n => {
     if(!filteredNewsSite.includes(n.newsSite)){
@@ -57,11 +51,6 @@ let data  = fetch(url).then((response)=> {
   })
   createDropdown(filteredNewsSite);
   select.addEventListener("change",(event)=> handleSelect(event,newsInfo))
-  }
-  
-})
-.catch(error => {
-  newsContainer.innerText = error;
 })
 
 function handleSelect(event,data){
