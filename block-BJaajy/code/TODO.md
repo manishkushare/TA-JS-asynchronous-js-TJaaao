@@ -1,21 +1,25 @@
 - Create four promises that resolve after 1, 2, 3 and 4 seconds with a random value. Using `Promise.all` log the value of each promise that it resolved with.
 ```js
-Promise.all([
-  new Promise((resolve,reject)=> setTimeout(()=> resolve("a"),1000)),
-  new Promise((resolve,reject)=> setTimeout(()=> resolve("b"),2000)),
-  new Promise((resolve,reject)=> setTimeout(()=> resolve("c"),3000)),
-  new Promise((resolve,reject)=> setTimeout(()=> resolve("d"),4000)),
-
-]).then(console.log);
+let seconds = [1,2,3,4]
+let a = Promise.all(seconds.map(second => new Promise((res,rej)=>{
+  setTimeout(res(Math.random()),second * 1000);
+})));
+a.then(console.log)
 ```
 - Create a list of 5 Github usernames in an array and using `Promise.all` get access to the data of each user from GitHub API. Log the number of followers of each user.
 ```js
 let username = ["adityaP0","manishkushare","prank7","nnnkit"]
-let userData = Promise.all(username.map(user => {
+let userData = (username.map(user => {
    return fetch(`https://api.github.com/users/${user}`)
   .then(response => response.json())
 }))
-.then(console.log)
+
+let userInfo = Promise.all(userData).then(users => {
+  return users.map(user => {
+    return user.followers ;
+  })
+});
+
 ```
 - Use `Promise.race` to see which API resolves faster from the given list of URLs. Log the object you get from the promise that is resolved faster.
 
@@ -23,7 +27,7 @@ let userData = Promise.all(username.map(user => {
   - https://aws.random.cat/meow
 ```js
 Promise.race([
-  fetch(`https://random.dog/woof.json`).then(res => res.json()).then(console.log),
+  fetch(`https://random.dog/woof.json`).then(res => res.json()),
   fetch(`https://aws.random.cat/meow`).then(res => res.json()),
 ]).then(console.log)
 ```
@@ -40,7 +44,7 @@ const three = new Promise((resolve, reject) =>
   setTimeout(() => resolve('John'), 3000)
 );
 
-let b = Promise.all([one,two,three]);
+let b = Promise.allSettled([one,two,three]);
 ```
 
 - What will be the output of the following code snippet? How much time will it take for the promise to resolve?
@@ -53,4 +57,7 @@ Promise.all([
   'Sam',
   { name: 'John' },
 ]).then(console.log);
+
+//["Arya","Sam",{name:"John"}];
+
 ```
