@@ -1,0 +1,21 @@
+.book_list{
+  display: grid;
+  justify-content: center;
+  // margin: 0 auto;
+  grid-template-columns: repeat(2,1fr);
+  // grid-gap: 0 10p;
+  li {
+    display: grid;
+    // justify-self: center;
+    border: 1px dashed red;
+    padding: 2rem;
+    // justify-self: center;
+    h2,h3,button{
+      display: grid;
+      justify-self: center;
+    }
+    h3{
+      margin: 1rem 0;
+    }
+  }
+}
