@@ -15,13 +15,18 @@
     }
   }
 }
-
-.pop_up{
-  position: absolute;
+.main{
+  // position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgb(158, 158, 235) !important;
+}
+.pop_up{
+  // position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(158, 158, 235) ;
   span{
     position: absolute;
     right: 10px;
@@ -29,7 +34,6 @@
     font-size: 2rem;
     font-weight: 900;
     cursor: pointer;
-    z-index: 555;
   }
   li{
     border: 1px solid black;
@@ -39,8 +43,7 @@
 }
 
 .pop_up_list{
-//  position: absolute;
-padding-top: 75px;
+
  top: 50px;
  width: 100%;
 }

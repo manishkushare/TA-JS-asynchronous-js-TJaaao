@@ -1,11 +1,10 @@
-
 let bookContainer = document.querySelector(".book_list");
 let popUp = document.querySelector(".pop_up");
 let popUpList = document.querySelector(".pop_up_list");
 let closePopUp = document.querySelector(".close_popup");
-popUp.style.display = "none";
 let main = document.querySelector(".main");
 let errorElem = document.querySelector(".error");
+
 
 const bookUrl = "https://www.anapioficeandfire.com/api/books"
 
@@ -15,18 +14,20 @@ function handleError(message = "Something went wrong"){
 }
 function handleSpin(rootElem, status = false){
   if(status){
+    console.log("entered");
     rootElem.innerHTML = `<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> `
   }
 }
 
 
 function createPopUpUI(data){
-  handleSpin(popUp,true);
-
+  // handleSpin(spinBase);
   popUpList.innerHTML = "";
   Promise.all(data.map(elem => {
-    return fetch(elem).then(res => res.json())
-  })).then(data => { 
+    return fetch(elem).then(res => res.json());
+  }))
+  .then(data => { 
+    console.log(data);
     data.forEach(character => {
       console.log(character,"inside for each");
       let li = document.createElement("li");
@@ -34,11 +35,12 @@ function createPopUpUI(data){
       popUpList.append(li);
     })
   })
+  .finally(() => handleSpin(popUp));
   
 }
 
 function createBookUI(data){
-  console.log(data);
+  popUp.style.display = "none";
   bookContainer.innerHTML = "";
   data.forEach((res,index)=>{
       let li = document.createElement("li");
