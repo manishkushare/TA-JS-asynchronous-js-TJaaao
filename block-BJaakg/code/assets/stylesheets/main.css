@@ -238,12 +238,17 @@ body {
   margin: 1rem 0;
 }
 
-.pop_up {
-  position: absolute;
+.main {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #9e9eeb !important;
+}
+
+.pop_up {
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #9e9eeb;
 }
 
 .pop_up span {
@@ -253,7 +258,6 @@ body {
   font-size: 2rem;
   font-weight: 900;
   cursor: pointer;
-  z-index: 555;
 }
 
 .pop_up li {
@@ -263,7 +267,6 @@ body {
 }
 
 .pop_up_list {
-  padding-top: 75px;
   top: 50px;
   width: 100%;
 }
