@@ -1,0 +1,49 @@
+.book_list{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2,1fr);
+  li {
+    display: grid;
+    border: 1px dashed red;
+    padding: 2rem;
+    h2,h3,button{
+      display: grid;
+      justify-self: center;
+    }
+    h3{
+      margin: 1rem 0;
+    }
+  }
+}
+.main{
+  // position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.pop_up{
+  // position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(158, 158, 235) ;
+  span{
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    font-size: 2rem;
+    font-weight: 900;
+    cursor: pointer;
+  }
+  li{
+    border: 1px solid black;
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+.pop_up_list{
+
+ top: 50px;
+ width: 100%;
+}
