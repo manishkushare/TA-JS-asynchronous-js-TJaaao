@@ -51,14 +51,6 @@ function handleDelete(event){
           'Content-Type': 'application/json'
         }
     })
-    // .then(res => {
-    //     console.log(res, "res inside delete method, ");
-    //     return res.json()  
-    // } )
-    // .then(data => {
-    //     console.log(data,"data inside delete method,");
-    //     createUI(data.todos);
-    // })
     .then(() => fetchData());
 }
 // handle input checkbox , PUT method by udating isCompleted
@@ -67,26 +59,19 @@ function handleCheckbox(event){
     console.dir(event.target);
     let data = {
         todos:{
-            isCompleted : !event.target.checked,
+
+            isCompleted : event.target.checked,
         }
-    }
+    };
     fetch(baseURL + `/${id}` , {
         method: 'PUT', 
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data) 
-    })
+    })    
     //giving error ******
-    .then(res => {
-        console.log(res, "res inside put method, handleCheckbox");
-        return res.json()  
-    } )
-    .then(data => {
-        console.log(data,"data inside put method, handleCheckbox");
-        createUI(data.todos);
-    })
-    // .then(() => fetchData());
+    .then(() => fetchData());
 }
  
 // handle post , using POST method to add new entity
@@ -129,6 +114,7 @@ function fetchData(){
     fetch(baseURL)
     .then(res => res.json())
     .then(data => {
+        console.log(data,"💋");
         createUI(data.todos)
     })    
 }
